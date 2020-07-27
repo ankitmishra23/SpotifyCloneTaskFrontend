@@ -1,0 +1,31 @@
+<table>
+<div style=" width: 1100px; height: 400px; margin-left: 200px;" *ngIf="status">
+<div class="card" style="width: 18rem; float: left; margin-left: 10px; margin-top: 10px; margin-bottom: 5px;" *ngFor="let albumdetail of album">
+    <td><img src="https://cdns-images.dzcdn.net/images/cover/b27a7e623be84a462b1cad6feb077909/264x264.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{albumdetail.albumName}}</h5>
+      <p class="card-text">Click on the button to see all the songs in this album.</p>
+      <a  class="btn btn-primary" (click)="ShowSongs(albumdetail.albumId)">Songs</a>
+    </div>
+    </td>
+  </div>
+  </div>
+  </table>
+
+  <table class="table table-dark" style="width: 500px; margin-left: 500px;" *ngIf="!status">
+    <thead>
+      <tr>
+        <th scope="col">Songs List</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let column of albumsongs.songs | paginate: config; ">
+        
+        <td (click)="playsong(column.songName)" >{{column.songName}}</td>
+      </tr>
+      
+    </tbody>
+    <pagination-controls (pageChange)="pageChanged($event)" ></pagination-controls>
+  </table>
+  
+  <button type="button" class="btn btn-primary" (click)="togglestatus()">Back</button>

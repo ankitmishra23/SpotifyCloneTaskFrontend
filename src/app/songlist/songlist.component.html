@@ -1,0 +1,27 @@
+
+  <table class="table table-dark" style="width: 500px; margin-left: 500px;">
+    <thead>
+      <tr>
+        <th scope="col">Songs List</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let column of songs | paginate: config; let i=index">
+        
+        <td (click)="playsong(column)" >{{column}}</td>
+        <td><div class="input-group mb-1">
+          <input type="text" class="form-control" placeholder="Enter Playlist Name" aria-label="Recipient's username" aria-describedby="button-addon2" id={{column}}>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button"  (click)="AddToPlaylist(column)">Add To Playlist</button>
+          </div>
+        </div></td>
+      </tr>
+      
+    </tbody>
+    <pagination-controls (pageChange)="pageChanged($event)" ></pagination-controls>
+  </table>
+  
+  
+
+
+

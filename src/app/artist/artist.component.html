@@ -1,0 +1,38 @@
+<table class="table table-dark" style="width: 500px; margin-left: 500px;">
+  <thead>
+    <tr>
+      <th scope="col">Followed Artist List</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let column of followedArtist.follow|paginate: {itemsPerPage: 10,
+    currentPage: page}; let i=index;">
+     
+      <td>{{column.artistName}}</td>
+      <td><button type="button" class="btn btn-primary" (click)="unfollow(column.artistName)">{{valueofbutton[column.artistId-1]}}</button></td>
+    </tr>
+    
+  </tbody>
+  <!--<pagination-controls (pageChange)="pageChanged($event)" ></pagination-controls>-->
+  <pagination-controls (pageChange)="page = $event"></pagination-controls>
+  </table>
+
+
+<table class="table table-dark" style="width: 500px; margin-left: 500px;">
+    <thead>
+      <tr>
+        <th scope="col">Unfollowed Artist List</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let column of unfollowedArtist|paginate: {itemsPerPage: 10,
+      currentPage: page}; let i=index;">
+        
+        <td>{{column.artistName}}</td>
+        <td><button type="button" class="btn btn-primary" (click)="follow(column.artistName)">{{valueofbutton[column.artistId-1]}}</button></td>
+      </tr>
+      
+    </tbody>
+    <!--<pagination-controls (pageChange)="pageChanged($event)" ></pagination-controls>-->
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    </table>

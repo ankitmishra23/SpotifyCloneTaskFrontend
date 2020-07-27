@@ -1,0 +1,20 @@
+<div class="input-group mb-1" style="width: 300px; margin-left: 600px;">
+    <input type="text" class="form-control" placeholder="Enter Song Name" aria-label="Recipient's username" aria-describedby="button-addon2" id="search_song">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="GetSong()">Search Song</button>
+    </div>
+  </div>
+
+<table class="table table-dark" style="width: 500px; margin-left: 500px;" *ngIf="status">
+    <thead>
+      <tr>
+        <th scope="col">Search Result</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>        
+        <td (click)="playsong(song)" >{{song}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
