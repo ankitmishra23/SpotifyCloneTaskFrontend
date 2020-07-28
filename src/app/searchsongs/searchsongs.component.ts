@@ -15,12 +15,12 @@ status=false;
   {
     this.status=true;
     const input=(document.getElementById('search_song') as HTMLInputElement).value;
-    console.log(input);
+    //console.log(input);
     this.songserv.FetchSongNameByName(input).subscribe(a=>{
-      console.log(a);
+      //console.log(a);
       this.song=a['songName'];
     });
-    console.log(this.song);
+    //console.log(this.song);
     
   }
   public playsong(i)

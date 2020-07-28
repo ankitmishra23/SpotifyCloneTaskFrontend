@@ -23,24 +23,24 @@ export class ArtistComponent implements OnInit {
   constructor(private data:SongserviceService) { 
     this.data.FetchArtistData().subscribe(art=>{
       this.artist=art;
-      console.log(this.artist);
+     // console.log(this.artist);
       this.totalRec=this.artist.length;
       this.userId=this.data.GetUserDetailsByName(this.data.username).subscribe(user=>{
-        console.log(user);
+       // console.log(user);
         this.userId=user['userId'];
         this.data.FetchArtistFollowedByUserId(this.userId).subscribe(a=>{
-          console.log(a);
+         // console.log(a);
           this.followedArtist=a;
         });
 
         this.data.FetchUnfollowedArtist(this.userId).subscribe(a=>{
-          console.log(a);
+          //console.log(a);
           this.unfollowedArtist=a;
         });
         this.data.FetchArtistFollowedByUserId(user['userId']).subscribe(follow=>
           {
             this.checkfollow=follow;
-            console.log(this.checkfollow);
+            //console.log(this.checkfollow);
             //console.log(this.checkfollow.follow[0].artistId);
             for(let i=0;i<this.artist.length;i++)
             {
@@ -62,7 +62,7 @@ export class ArtistComponent implements OnInit {
             }
       })
       
-    console.log(this.valueofbutton);
+    //console.log(this.valueofbutton);
           
         })
     });
@@ -92,8 +92,8 @@ export class ArtistComponent implements OnInit {
     this.data.FetchArtistByName(i).subscribe(a=>{
       //console.log(a);
       this.artistId=a['artistId'];
-      console.log(this.userId);
-      console.log(this.artistId);
+     // console.log(this.userId);
+      //console.log(this.artistId);
       this.data.AddFollowings({
         "artistId":this.artistId,
         "userId":this.userId
@@ -117,7 +117,7 @@ export class ArtistComponent implements OnInit {
         }
       });
     });*/
-    console.log(i);
+    //console.log(i);
 
 
 
@@ -128,7 +128,7 @@ export class ArtistComponent implements OnInit {
       //console.log(a);
       this.artistId=a['artistId'];
     this.data.UnfollowArtist(this.userId,this.artistId).subscribe(b=>{
-      console.log(b);
+     // console.log(b);
       alert("Artist Unfollowed!! Click on any tab and again click on artist tab to see the changes.");
     })
     });

@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   userName;
   constructor(private songserv:SongserviceService){
     this.userName=this.songserv.username;
-    console.log(this.userName);
+    //console.log(this.userName);
   }
   public play(){
     this.songserv.play();

@@ -15,10 +15,10 @@ export class PlaylistComponent implements OnInit {
   playlistSongs:any=[];
   constructor(private data:SongserviceService) {
     this.data.GetUserDetailsByName(this.data.username).subscribe(a=>{
-      console.log(a);
+      //console.log(a);
       this.id=a['userId'];
     this.data.GetPlaylist(this.id).subscribe(c=>{
-      console.log(c);
+      //console.log(c);
       this.playlist=c;
     });
     })
@@ -44,7 +44,7 @@ export class PlaylistComponent implements OnInit {
         "playlistName":input,
         "userId": this.id 
       }).subscribe(b=>{
-        console.log(b);
+        //console.log(b);
         alert("Playlist Added");
       });
   
@@ -53,7 +53,7 @@ export class PlaylistComponent implements OnInit {
   {
     this.status=false;
       this.data.GetPlaylistSongs(this.id,id).subscribe(a=>{
-        console.log(a);
+        //console.log(a);
         this.playlistSongs=a;
       });
   }
@@ -72,12 +72,12 @@ export class PlaylistComponent implements OnInit {
 
     console.log(songName);
     this.data.GetSongId(songName).subscribe(a=>{
-      console.log(a);
-      console.log(this.playlistSongs['playlistName']);
+      //console.log(a);
+      //console.log(this.playlistSongs['playlistName']);
       this.data.GetPlaylistId(this.playlistSongs['playlistName']).subscribe(b=>{
-        console.log(b);
+        //console.log(b);
         this.data.RemoveSongFromPlaylist(a,b).subscribe(c=>{
-          console.log(c);
+          //console.log(c);
         });
       })
       

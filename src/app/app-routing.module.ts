@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import {SongserviceService} from './songservice.service';
 import { SearchsongsComponent } from './searchsongs/searchsongs.component';
+import { UpdateComponent } from './update/update.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,10 @@ const routes: Routes = [
     component:HomeComponent,
     canActivate:[SongserviceService],
     children:[
+      {
+        path:'update',
+        component:UpdateComponent
+      },
       {
         path:'songs',
         component:SonglistComponent

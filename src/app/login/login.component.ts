@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     }
     else{
       this.data.GetAuth(this.login.controls['userName'].value,this.login.controls['password'].value).subscribe(a=>{
-        console.log(a);
+        //console.log(a);
         if(a)
         {
           alert("You are logged in.");

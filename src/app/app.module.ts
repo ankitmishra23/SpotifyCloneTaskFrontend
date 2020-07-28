@@ -17,6 +17,7 @@ import { NavComponent } from './nav/nav.component';
 
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { SearchsongsComponent } from './searchsongs/searchsongs.component';
+import { UpdateComponent } from './update/update.component';
 
 
 
@@ -32,7 +33,8 @@ import { SearchsongsComponent } from './searchsongs/searchsongs.component';
     LoginComponent,
     HomeComponent,
     NavComponent,
-    SearchsongsComponent
+    SearchsongsComponent,
+    UpdateComponent
     
   ],
   imports: [

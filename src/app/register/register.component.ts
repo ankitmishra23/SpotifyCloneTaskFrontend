@@ -38,7 +38,7 @@ export class RegisterComponent implements OnInit {
       else{
         //this.data=this.register.value;
         //this.addregister.push(this.data);
-      console.log(this.register.controls['location'].value);
+      //console.log(this.register.controls['location'].value);
       //console.log(this.register.controls['username'].value);
       let user={
         "userName":this.register.controls['username'].value,
@@ -48,9 +48,9 @@ export class RegisterComponent implements OnInit {
         "location":this.register.controls['location'].value,
         "phone":this.register.controls['phone'].value
       }
-      console.log(user);
+      //console.log(user);
       this.data.PostUserData(user).subscribe(a=>{
-        console.log(a);
+       // console.log(a);
       });
       alert("Register successful!! Click on login to continue");
       }

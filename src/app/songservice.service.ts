@@ -138,4 +138,19 @@ public GetPlaylistIdByUserId(playlist,userId)
   return this.http.get("https://localhost:44381/api/Spotify/getplaylistidbyuserid/"+playlist+"/"+userId);
 }
 
+public GetPlaylistById(userId)
+{
+  return this.http.get("https://localhost:44381/api/Spotify/getplaylistbyid/"+userId);
+}
+
+public GetAllSongs()
+{
+  return this.http.get("https://localhost:44381/api/Spotify/getallsongs");
+}
+
+public UpdateUser(user,userId)
+{
+  return this.http.put("https://localhost:44381/api/Spotify/updateuser/"+userId,user);
+}
+
 }

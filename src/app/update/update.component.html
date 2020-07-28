@@ -1,0 +1,81 @@
+<div style="margin-left: 200px; width: 1000px;">
+<fieldset style="color: white;">
+    <legend>Update Profile</legend>
+<form [formGroup]="update" (ngSubmit)="onSubmit()">
+    <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-2 col-form-label">User Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputuser" formControlName="username">
+          <div *ngIf="submitform && update.controls['username'].invalid"><div *ngIf="submitform && update.controls['username'].errors.required" class="warningdiv">User name is required.</div></div>
+        </div>
+      </div>
+    <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="inputEmail3" formControlName="email">
+        <div *ngIf="submitform && update.controls['email'].invalid"><div  *ngIf="submitform && update.controls['email'].errors.required" class="warningdiv">email is required</div><div *ngIf="submitform && update.controls['email'].errors.email" class="warningdiv">enter correct email format</div></div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" class="form-control" id="inputPassword3" formControlName="password">
+        <div *ngIf="submitform && update.controls['password'].invalid"><div *ngIf="submitform && update.controls['password'].errors.required" class="warningdiv">password is required.</div><div *ngIf="submitform && update.controls['password'].value lt 8" class="warningdiv">Minimum 8 digits are required.</div></div>
+      </div>
+    </div>
+
+    <div class="form-group row">
+        <label for="gender" class="col-sm-2 col-form-label">Gender</label>
+        <div class="col-sm-3">
+            <select class="form-control" formControlName="gender" id="gender">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+              <div *ngIf="submitform && update.controls['username'].invalid">
+          <div *ngIf="submitform && update.controls['gender'].errors.required" class="warningdiv">Gender is required.</div></div>
+        </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="location" class="col-sm-2 col-form-label">Location</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="location" formControlName="location">
+              <div *ngIf="submitform && update.controls['username'].invalid">
+              <div *ngIf="submitform && update.controls['location'].errors.required" class="warningdiv">Location is required.</div></div>
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+            <div class="col-sm-10">
+                <input type="text" name="phone" formControlName="phone" id="phone">
+                <div *ngIf="submitform && update.controls['phone'].errors">
+                  <div *ngIf="submitform && update.controls['phone'].errors.required" class="warningdiv">Phone Number is required</div>
+                  <div *ngIf="submitform && update.controls['phone'].value!=10 || update.controls['phone'].touched" class="warningdiv">enter vaild phone number(length 10 digits)</div>
+                </div>
+            </div>
+          </div>
+
+          
+    
+    
+    <div class="form-group row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-10">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck1">
+          <label class="form-check-label" for="gridCheck1">
+            I accept that all the information provided by me is valid.
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <button type="submit" class="btn btn-primary" [disabled]="update.pristine">Register</button>
+      </div>
+    </div>
+  </form>
+  </fieldset>
+  </div>
