@@ -1,5 +1,5 @@
 
-  <table class="table table-dark" style="width: 500px; margin-left: 500px;">
+  <table class="table table-dark" style="width: 700px; margin-left: 500px;">
     <thead>
       <tr>
         <th scope="col">Songs List</th>
@@ -10,10 +10,16 @@
         
         <td (click)="playsong(column)" >{{column}}</td>
         <td><div class="input-group mb-1">
-          <input type="text" class="form-control" placeholder="Enter Playlist Name" aria-label="Recipient's username" aria-describedby="button-addon2" id={{column}}>
+         <!-- <input type="text" class="form-control" placeholder="Enter Playlist Name" aria-label="Recipient's username" aria-describedby="button-addon2" id={{column}}>-->
+         <div class="col-md-10 mb-3">
+          <label for="validationDefault04">Choose Playlist</label>
+          <select class="custom-select" id="validationDefault04" >
+            <option selected [ngValue]="play" *ngFor="let play of playlist;" >{{play.playlistName}}</option>            
+          </select>
+        </div>
           
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button"  (click)="AddToPlaylist(column)">Add To Playlist</button>
+            <button class="btn btn-outline-secondary" type="button"  (click)="AddToPlaylistFromSelect(column)">Add To Playlist</button>
           </div>
         </div></td>
       </tr>

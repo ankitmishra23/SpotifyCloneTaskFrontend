@@ -10,19 +10,19 @@ export class SonglistComponent implements OnInit {
   config: any;
   userId;
   songs=["Aise Na Mujhe Tum Dekho","Ankahee","Boy With Luv","DDU-DU-DDU-DU","Derniere Danse","Dil Bechara","Dil Tod Ke","End of Time","Fake Love","Fi Ha","Girlfriend","How You Like That","Ik Tera","Intentions","Ishq Ka Raja","Kisi Gair Ka Nahi","Kyon","ON","Ooh Na Na Na","Raja Ko Rani Se Pyar","Safari","Serhat Durmus","Stuck With U","Taare Ginn","Tere Naal","Trust Nobody","Voracity"];
+  
 playlist:any=[];
   constructor(private songserv:SongserviceService) {
 
-
+    
     this.userId=this.songserv.GetUserDetailsByName(this.songserv.username).subscribe(a=>{
       this.userId=a['userId'];
-
       this.songserv.GetPlaylistById(this.userId).subscribe(b=>{
         this.playlist=b;
       })
-
-
     });
+
+    
 
 
     this.config = {
@@ -83,6 +83,27 @@ playlist:any=[];
   }
 
   ngOnInit(): void {
+  }
+  public AddToPlaylistFromSelect(songName)
+  {
+    
+    const newplaylist=(document.getElementById('validationDefault04') as HTMLSelectElement).value;
+    //console.log("PlaylistName"+newplaylist);
+    this.songserv.GetPlaylistId(newplaylist).subscribe(b=>{
+      this.songserv.GetSongId(songName).subscribe(a=>{
+      
+        this.songserv.AddPlaylistSongs({
+          "playlistId":b,
+          "songId":a
+        }).subscribe(c=>{
+          //console.log(c);
+          //console.log("PlaylistName"+newplaylist);
+          
+          alert("Song added!!");
+        })
+      })
+    })
+    
   }
 
 }
