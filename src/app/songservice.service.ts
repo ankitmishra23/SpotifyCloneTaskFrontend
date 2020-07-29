@@ -41,116 +41,116 @@ export class SongserviceService implements CanActivate {
     songplay.play();
   }
   public FetchArtistData(){
-    return this.http.get("https://localhost:44381/api/Spotify/getartists");
+    return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getartists");
   }
 
   public PostUserData(user)
   {
      
     
-      return this.http.post("https://localhost:44381/api/Spotify/adduser",user);
+      return this.http.post("http://spotifyclone.azurewebsites.net/api/Spotify/adduser",user);
   }
 
   public FetchArtistByName(str)
   {
-    return this.http.get("https://localhost:44381/api/Spotify/getartistbyname/"+str);
+    return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getartistbyname/"+str);
 
   }
   public FetchAllFollowedArtist()
   {
-    return this.http.get("https://localhost:44381/api/Spotify/getfollowedartist");
+    return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getfollowedartist");
 
   }
 
   public FetchAlbums()
   {
-    return this.http.get("https://localhost:44381/api/Spotify/getalbum");
+    return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getalbum");
   }
 
   public FetchAlbumSongsById(i)
   {
-    return this.http.get("https://localhost:44381/api/Spotify/getalbumsongsbyid/"+i);
+    return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getalbumsongsbyid/"+i);
   }
 
   public GetAuth(name,pass)
   {
-    return this.http.get("https://localhost:44381/api/Spotify/getuserauthentication/"+name+"/"+pass);
+    return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getuserauthentication/"+name+"/"+pass);
   }
 
   public GetUserDetailsByName(name)
   {
-    return this.http.get("https://localhost:44381/api/Spotify/getuserdetailsbyname/"+name);
+    return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getuserdetailsbyname/"+name);
   }
   public AddPlaylist(playlist)
   {
-    return this.http.post("https://localhost:44381/api/Spotify/addplaylist",playlist);
+    return this.http.post("http://spotifyclone.azurewebsites.net/api/Spotify/addplaylist",playlist);
   }
 
   public GetPlaylist(id)
   {
-    return this.http.get("https://localhost:44381/api/Spotify/getplaylistbyid/"+id);
+    return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getplaylistbyid/"+id);
   }
 
   public GetPlaylistSongs(userId,playlistId)
   {
-    return this.http.get("https://localhost:44381/api/Spotify/getplaylistsongs/"+userId+"/"+playlistId);
+    return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getplaylistsongs/"+userId+"/"+playlistId);
   }
 
   public GetSongId(songName)
   {
-    return this.http.get("https://localhost:44381/api/Spotify/getsongidbyname/"+songName);
+    return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getsongidbyname/"+songName);
   }
   public GetPlaylistId(playlistName)
   {
-    return this.http.get("https://localhost:44381/api/Spotify/getplaylistidbyname/"+playlistName);
+    return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getplaylistidbyname/"+playlistName);
   }
   public AddPlaylistSongs(parameters)
   {
-    return this.http.post("https://localhost:44381/api/Spotify/addsongstoplaylist",parameters);
+    return this.http.post("http://spotifyclone.azurewebsites.net/api/Spotify/addsongstoplaylist",parameters);
   }
   public RemoveSongFromPlaylist(songId,playlistId)
   {
-      return this.http.delete("https://localhost:44381/api/Spotify/removesong/"+songId+"/"+playlistId);
+      return this.http.delete("http://spotifyclone.azurewebsites.net/api/Spotify/removesong/"+songId+"/"+playlistId);
   }
 public FetchArtistFollowedByUserId(userId)
 {
-  return this.http.get("https://localhost:44381/api/Spotify/getuserfollowings/"+userId);  
+  return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getuserfollowings/"+userId);  
 }
 public AddFollowings(parameters)
 {
-  return this.http.post("https://localhost:44381/api/Spotify/followartist",parameters);
+  return this.http.post("http://spotifyclone.azurewebsites.net/api/Spotify/followartist",parameters);
 }
 public FetchSongNameByName(songName)
 {
-  return this.http.get("https://localhost:44381/api/Spotify/getsongnamebyname/"+songName);
+  return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getsongnamebyname/"+songName);
 }
 public FetchUnfollowedArtist(userId)
 {
-  return this.http.get("https://localhost:44381/api/Spotify/getunfollowedartist/"+userId);
+  return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getunfollowedartist/"+userId);
 }
 public UnfollowArtist(userId,artistId)
 {
-  return this.http.delete("https://localhost:44381/api/Spotify/unfollowartist/"+userId+"/"+artistId);
+  return this.http.delete("http://spotifyclone.azurewebsites.net/api/Spotify/unfollowartist/"+userId+"/"+artistId);
 }
 
 public GetPlaylistIdByUserId(playlist,userId)
 {
-  return this.http.get("https://localhost:44381/api/Spotify/getplaylistidbyuserid/"+playlist+"/"+userId);
+  return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getplaylistidbyuserid/"+playlist+"/"+userId);
 }
 
 public GetPlaylistById(userId)
 {
-  return this.http.get("https://localhost:44381/api/Spotify/getplaylistbyid/"+userId);
+  return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getplaylistbyid/"+userId);
 }
 
 public GetAllSongs()
 {
-  return this.http.get("https://localhost:44381/api/Spotify/getallsongs");
+  return this.http.get("http://spotifyclone.azurewebsites.net/api/Spotify/getallsongs");
 }
 
 public UpdateUser(user,userId)
 {
-  return this.http.put("https://localhost:44381/api/Spotify/updateuser/"+userId,user);
+  return this.http.put("http://spotifyclone.azurewebsites.net/api/Spotify/updateuser/"+userId,user);
 }
 
 }
