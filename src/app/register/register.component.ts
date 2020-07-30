@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormControl,FormArray,FormGroup,Validator, Validators} from '@angular/forms'
 import { SongserviceService } from '../songservice.service';
-import { getLocaleDateFormat, getLocaleDateTimeFormat } from '@angular/common';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -9,8 +8,7 @@ import { getLocaleDateFormat, getLocaleDateTimeFormat } from '@angular/common';
 })
 export class RegisterComponent implements OnInit {
   submitform=false;
-  register:FormGroup;
-  
+  register:FormGroup;  
     constructor(private reg:FormBuilder,private data:SongserviceService) { 
       this.ngOnInit();
     }
@@ -36,10 +34,6 @@ export class RegisterComponent implements OnInit {
         return;
       }
       else{
-        //this.data=this.register.value;
-        //this.addregister.push(this.data);
-      //console.log(this.register.controls['location'].value);
-      //console.log(this.register.controls['username'].value);
       let user={
         "userName":this.register.controls['username'].value,
         "email":this.register.controls['email'].value,
@@ -48,12 +42,9 @@ export class RegisterComponent implements OnInit {
         "location":this.register.controls['location'].value,
         "phone":this.register.controls['phone'].value
       }
-      //console.log(user);
       this.data.PostUserData(user).subscribe(a=>{
-       // console.log(a);
       });
       alert("Register successful!! Click on login to continue");
       }
     }
-
 }

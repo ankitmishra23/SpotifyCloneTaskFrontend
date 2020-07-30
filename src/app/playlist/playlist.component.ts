@@ -15,7 +15,6 @@ export class PlaylistComponent implements OnInit {
   playlistSongs:any=[];
   constructor(private data:SongserviceService) {
     this.reload();
-
     this.config = {
       itemsPerPage: 10,
       currentPage: 1,
@@ -24,11 +23,9 @@ export class PlaylistComponent implements OnInit {
    }
    public reload()
    {
-    this.data.GetUserDetailsByName(this.data.username).subscribe(a=>{
-      //console.log(a);
+    this.data.GetUserDetailsByName(this.data.username).subscribe(a=>{      
       this.id=a['userId'];
-    this.data.GetPlaylist(this.id).subscribe(c=>{
-      //console.log(c);
+      this.data.GetPlaylist(this.id).subscribe(c=>{     
       this.playlist=c;
     });
     })
@@ -37,8 +34,7 @@ export class PlaylistComponent implements OnInit {
   ngOnInit(): void {
   }
   pageChanged(event){
-    this.config.currentPage = event;
-    
+    this.config.currentPage = event;    
   }
 
   public AddPlaylist()
@@ -47,18 +43,15 @@ export class PlaylistComponent implements OnInit {
       this.data.AddPlaylist({
         "playlistName":input,
         "userId": this.id 
-      }).subscribe(b=>{
-        //console.log(b);
+      }).subscribe(b=>{        
         alert("Playlist Added");
         this.reload();
-      });
-  
+      });  
   }
   public ShowSongs(id)
   {
     this.status=false;
-      this.data.GetPlaylistSongs(this.id,id).subscribe(a=>{
-        //console.log(a);
+      this.data.GetPlaylistSongs(this.id,id).subscribe(a=>{       
         this.playlistSongs=a;
       });
   }
@@ -73,24 +66,14 @@ export class PlaylistComponent implements OnInit {
     this.data.play();
   }
   public RemoveFromPlaylist(songName)
-  {
-
-    console.log(songName);
+  {    
     this.data.GetSongId(songName).subscribe(a=>{
-      //console.log(a);
-      //console.log(this.playlistSongs['playlistName']);
       this.data.GetPlaylistId(this.playlistSongs['playlistName']).subscribe(b=>{
-        //console.log(b);
         this.data.RemoveSongFromPlaylist(a,b).subscribe(c=>{
-          //console.log(c);
-          
+          this.ShowSongs(b);          
         });
-      })
-      
+      })      
     })
-
-    alert("To check updated playlist click on the back button and then again click on the playlist.")
-    
-    
+    alert("To check updated playlist click on the back button and then again click on the playlist.");     
   }
 }

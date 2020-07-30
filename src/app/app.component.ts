@@ -12,12 +12,10 @@ export class AppComponent {
   
   title = 'spotifytask';
   songName:string;
-  constructor(private songserv:SongserviceService){
-    
+  constructor(private songserv:SongserviceService){    
   }
   public play(){
-    this.songserv.play();
-    
+    this.songserv.play();    
   }
   
  

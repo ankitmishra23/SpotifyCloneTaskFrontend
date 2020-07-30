@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http'; 
-import { timeStamp } from 'console';
 import {CanActivate, Router, RouterStateSnapshot, ActivatedRouteSnapshot} from '@angular/router';
 
 @Injectable({
@@ -9,11 +7,9 @@ import {CanActivate, Router, RouterStateSnapshot, ActivatedRouteSnapshot} from '
 })
 export class SongserviceService implements CanActivate {
 
-  constructor(private http:HttpClient,private router: Router) { 
-    
+  constructor(private http:HttpClient,private router: Router) {     
   }
-  canActivate(a):boolean{
-    
+  canActivate(a):boolean{    
     if (a) {
       return true;
     } else {      
@@ -45,9 +41,7 @@ export class SongserviceService implements CanActivate {
   }
 
   public PostUserData(user)
-  {
-     
-    
+  {    
       return this.http.post("https://spotifyclone.azurewebsites.net/api/Spotify/adduser",user);
   }
 
@@ -152,5 +146,4 @@ public UpdateUser(user,userId)
 {
   return this.http.put("https://spotifyclone.azurewebsites.net/api/Spotify/updateuser/"+userId,user);
 }
-
 }

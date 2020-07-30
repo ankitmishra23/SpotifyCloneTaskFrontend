@@ -11,12 +11,9 @@ album:any=[];
 config: any;
 status=true;
 albumsongs:any=[];
-
   constructor(private data:SongserviceService) {
     this.data.FetchAlbums().subscribe(a=>{
-      //console.log(a);
       this.album=a;
-      //console.log(this.album)
     });
     this.config = {
       itemsPerPage: 10,
@@ -28,7 +25,6 @@ albumsongs:any=[];
    public ShowSongs(i)
    {
      this.status=false;
-     //console.log(this.status);
      this.data.FetchAlbumSongsById(i).subscribe(a=>{
       this.albumsongs=a;
      });

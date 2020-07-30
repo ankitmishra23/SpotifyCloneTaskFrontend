@@ -5,7 +5,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let column of followedArtist.follow|paginate: {itemsPerPage: 10,
+    <tr *ngFor="let column of followedArtist.follow|paginate: {itemsPerPage: 15,
     currentPage: page}; let i=index;">
      
       <td>{{column.artistName}}</td>
@@ -25,8 +25,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let column of unfollowedArtist|paginate: {itemsPerPage: 10,
-      currentPage: page}; let i=index;">
+      <tr *ngFor="let column of unfollowedArtist|paginate: {itemsPerPage: 20,
+      currentPage: page2}; let i=index;">
         
         <td>{{column.artistName}}</td>
         <td><button type="button" class="btn btn-primary" (click)="follow(column.artistName)">{{valueofbutton[column.artistId-1]}}</button></td>
@@ -34,5 +34,5 @@
       
     </tbody>
     <!--<pagination-controls (pageChange)="pageChanged($event)" ></pagination-controls>-->
-    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+    <pagination-controls (pageChange)="page2 = $event"></pagination-controls>
     </table>

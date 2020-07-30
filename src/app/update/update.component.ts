@@ -33,10 +33,6 @@ export class UpdateComponent implements OnInit {
         return;
       }
       else{
-        //this.data=this.register.value;
-        //this.addregister.push(this.data);
-      //console.log(this.register.controls['location'].value);
-      //console.log(this.register.controls['username'].value);
       let user={
         "userName":this.update.controls['username'].value,
         "email":this.update.controls['email'].value,
@@ -45,18 +41,12 @@ export class UpdateComponent implements OnInit {
         "location":this.update.controls['location'].value,
         "phone":this.update.controls['phone'].value
       }
-      //console.log(user);
       this.data.GetUserDetailsByName(this.data.username).subscribe(a=>{
         const userId=a['userId'];
         this.data.UpdateUser(user,userId).subscribe(b=>{
           alert("Profile Updated!!");
         });
       })
-      
-       // console.log(a);
-     
       }
     }
-
-
 }

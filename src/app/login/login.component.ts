@@ -24,9 +24,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit()
-  {
-    
-  
+  {  
     this.submitform=true;
     if(this.login.invalid)
     {
@@ -36,7 +34,6 @@ export class LoginComponent implements OnInit {
     }
     else{
       this.data.GetAuth(this.login.controls['userName'].value,this.login.controls['password'].value).subscribe(a=>{
-        //console.log(a);
         if(a)
         {
           alert("You are logged in.");
@@ -51,5 +48,4 @@ export class LoginComponent implements OnInit {
       });
     }
   }
-
 }
