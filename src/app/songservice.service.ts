@@ -94,9 +94,9 @@ export class SongserviceService implements CanActivate {
   {
     return this.http.get("https://spotifyclone.azurewebsites.net/api/Spotify/getsongidbyname/"+songName);
   }
-  public GetPlaylistId(playlistName)
+  public GetPlaylistId(playlistName,userId)
   {
-    return this.http.get("https://spotifyclone.azurewebsites.net/api/Spotify/getplaylistidbyname/"+playlistName);
+    return this.http.get("https://spotifyclone.azurewebsites.net/api/Spotify/getplaylistidbyname/"+playlistName+"/"+userId);
   }
   public AddPlaylistSongs(parameters)
   {

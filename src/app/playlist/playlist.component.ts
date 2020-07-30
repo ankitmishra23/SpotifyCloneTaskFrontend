@@ -68,7 +68,7 @@ export class PlaylistComponent implements OnInit {
   public RemoveFromPlaylist(songName)
   {    
     this.data.GetSongId(songName).subscribe(a=>{
-      this.data.GetPlaylistId(this.playlistSongs['playlistName']).subscribe(b=>{
+      this.data.GetPlaylistId(this.playlistSongs['playlistName'],this.id).subscribe(b=>{
         this.data.RemoveSongFromPlaylist(a,b).subscribe(c=>{
           this.ShowSongs(b);          
         });
