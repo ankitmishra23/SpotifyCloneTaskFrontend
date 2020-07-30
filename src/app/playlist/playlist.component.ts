@@ -14,6 +14,16 @@ export class PlaylistComponent implements OnInit {
   status=true;
   playlistSongs:any=[];
   constructor(private data:SongserviceService) {
+    this.reload();
+
+    this.config = {
+      itemsPerPage: 10,
+      currentPage: 1,
+      totalItems: this.playlistSongs.length
+    };
+   }
+   public reload()
+   {
     this.data.GetUserDetailsByName(this.data.username).subscribe(a=>{
       //console.log(a);
       this.id=a['userId'];
@@ -22,12 +32,6 @@ export class PlaylistComponent implements OnInit {
       this.playlist=c;
     });
     })
-
-    this.config = {
-      itemsPerPage: 10,
-      currentPage: 1,
-      totalItems: this.playlistSongs.length
-    };
    }
 
   ngOnInit(): void {
@@ -46,6 +50,7 @@ export class PlaylistComponent implements OnInit {
       }).subscribe(b=>{
         //console.log(b);
         alert("Playlist Added");
+        this.reload();
       });
   
   }
@@ -78,12 +83,14 @@ export class PlaylistComponent implements OnInit {
         //console.log(b);
         this.data.RemoveSongFromPlaylist(a,b).subscribe(c=>{
           //console.log(c);
+          
         });
       })
       
     })
 
     alert("To check updated playlist click on the back button and then again click on the playlist.")
+    
     
   }
 }
