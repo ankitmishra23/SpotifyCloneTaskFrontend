@@ -67,7 +67,7 @@ playlist:any=[];
   public AddToPlaylistFromSelect(songName)
   {    
     const newplaylist=(document.getElementById('validationDefault04') as HTMLSelectElement).value;
-    this.songserv.GetPlaylistId(newplaylist).subscribe(b=>{
+    this.songserv.GetPlaylistId(newplaylist,this.userId).subscribe(b=>{
       this.songserv.GetSongId(songName).subscribe(a=>{
         this.songserv.AddPlaylistSongs({
           "playlistId":b,
